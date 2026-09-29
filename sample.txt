@@ -1,0 +1,11 @@
+MiniPad sample file
+===================
+Try the commands on this file:
+	- Ctrl-F and search for "dog", then press the arrow keys to jump between matches
+	- Ctrl-R to replace every "dog" with "dog"
+	- Ctrl-B, move the cursor, then Ctrl-X / Ctrl-V to move text around
+	- Ctrl-Z / Ctrl-Y to undo and redo
+
+
+Welcome to unidocs.
+This is a sample nodepad opened in cli mode like nano but with simplified controls.

@@ -1,0 +1,11 @@
+# Generated Python files
+__pycache__/
+*.py[cod]
+
+# Compiled C binary
+cli_editor
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
