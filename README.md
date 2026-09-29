@@ -47,74 +47,30 @@ The CLI editor provides a focused full-screen editing environment with line numb
   <img src="Assets/cli.png" alt="Unidocs terminal text editor editing sample.txt" width="900">
 </p>
 
-## Feature guide
+## Features
 
-### 1. Unified launcher
+### CLI editor
 
-`unified_editor.py` is the project entry point. It presents a simple menu for choosing the CLI or GUI editor, or it can launch either mode directly with `--cli` or `--gui`. When CLI mode is selected, the launcher checks for the compiled editor and invokes `make` automatically if it is missing.
+- Open existing files or create new files
+- Save and Save As
+- Line numbers, cursor navigation, and terminal-resize support
+- Select all, selection mode, cut, copy, and paste
+- Undo and redo
+- Find, replace, and go to line
+- File statistics
+- Run supported source files from the editor
 
-This keeps the C and Python implementations independent while providing one consistent way to start the project.
+### GUI editor
 
-### 2. File management
-
-Both interfaces support the everyday file workflow: creating a document, opening an existing file, saving changes, and saving to a new path.
-
-- The **CLI editor** opens a filename supplied at launch or lets you enter a filename through its in-editor Open command. It reports useful status messages, including the number of bytes written after a successful save.
-- The **GUI editor** opens each file in its own tab. Untitled files can be saved through the native Save As dialog, and closing the last tab automatically opens a fresh blank document so the workspace is always ready to use.
-
-### 3. Text editing, selection, and history
-
-The project supports the core editing actions expected from a notepad-style editor: typing, inserting new lines and tabs, deleting text, and clipboard operations.
-
-- In the **CLI**, selection mode allows a range of text to be marked with the keyboard before copying or cutting it. If no range is selected, copy and cut operate on the current line. The editor stores up to 100 buffer snapshots for undo and redo, grouping consecutive typing or erasing actions into practical history steps.
-- In the **GUI**, Tkinter's text widget provides undo, cut, copy, and paste actions. These are available through standard keyboard shortcuts such as `Ctrl+Z`, `Ctrl+X`, `Ctrl+C`, and `Ctrl+V`.
-
-### 4. Find, replace, and navigation
-
-The CLI editor includes a keyboard-driven find dialog with next/previous match navigation, an all-occurrences replace command, and a Go To Line prompt. It also supports arrow keys, Home, End, Page Up, and Page Down for efficient movement in larger files.
-
-The GUI has an in-editor find/replace bar. Searching is case-insensitive, highlights the next match after the cursor, moves the insertion point to that match, and lets you replace the highlighted result without leaving the editor.
-
-### 5. Code-aware editing and syntax highlighting
-
-The graphical editor can set a document's language manually or infer it from its filename extension. Supported modes are Plain Text, Python, C, C++, Java, JavaScript, and HTML.
-
-For supported code files, the editor applies lightweight highlighting to keywords, built-ins, strings, comments, and numbers. This is designed to make source files easier to scan while keeping the application fast and dependency-free.
-
-### 6. Run code and use the integrated terminal
-
-The GUI can run the active saved file and shows standard output, errors, and the process exit code in its integrated terminal panel. It supports:
-
-- Python with `python3`
-- C with `gcc`
-- C++ with `g++`
-- Java with `javac` and `java`
-- JavaScript with `node`
-
-The terminal panel also accepts shell commands and supports changing its working directory with `cd`. Commands run from the directory of the currently open file, helping programs locate related project files.
-
-The CLI editor also offers a Run command for supported source files, making it possible to edit and test code without leaving the terminal workflow.
-
-### 7. Interface and workspace tools
-
-The **CLI editor** uses raw terminal mode and ANSI escape sequences to provide a full-screen editing view with line numbers, a status area, visual search results, and terminal-resize handling. It runs in an alternate terminal screen, so exiting returns you to the original shell view.
-
-The **GUI editor** provides a multi-tab workspace with a line-number gutter, a scrollable editor area, and a live status bar showing the cursor line, column, word count, and current language. You can switch between dark and light themes, choose a font family and size, and show or hide the integrated terminal to focus on the task at hand.
-
-### Feature availability
-
-| Capability | CLI | GUI |
-| --- | :---: | :---: |
-| Open, Save, Save As | ✓ | ✓ |
-| Multi-file tabs | — | ✓ |
-| Undo and redo | ✓ | ✓ |
-| Cut, copy, and paste | ✓ | ✓ |
-| Find and replace | ✓ | ✓ |
-| Go to line | ✓ | — |
-| Syntax highlighting | — | ✓ |
-| Run source files | ✓ | ✓ |
-| Interactive terminal | — | ✓ |
-| Themes and font controls | — | ✓ |
+- Work with multiple files in tabs
+- Open, save, Save As, and close-tab actions
+- Find and replace
+- Undo, redo, cut, copy, and paste
+- Line numbers and live cursor-position status bar
+- Dark and light themes
+- Font selection and font-size controls
+- Syntax highlighting for Python, C/C++, Java, JavaScript, and HTML
+- Integrated terminal panel and run-current-file support
 
 ## Project structure
 
@@ -215,21 +171,6 @@ Press `Ctrl+T` inside the editor for the built-in help screen.
 | `Ctrl+Z` | Undo |
 | `Ctrl+X` / `Ctrl+C` / `Ctrl+V` | Cut / Copy / Paste |
 
-## Upload to GitHub
-
-First create a new **empty** repository on GitHub. Then, from this project folder, run the following commands. Replace `YOUR-USERNAME` and `YOUR-REPOSITORY` with your GitHub details.
-
-```bash
-cd "/home/chitrak-betal/Desktop/Unidocs Text Editor"
-git init
-git add .
-git commit -m "Initial commit: Unidocs Text Editor"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
-
-If GitHub asks you to authenticate, sign in through the browser or use a GitHub personal access token instead of a password.
 
 ## License
 
